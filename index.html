@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+
+    <!-- Google-font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS -->
+
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <style>
+        *{
+            font-family: geist;
+        }
+    </style>
+
+</head>
+<body class="max-w-[1140px] mx-auto">
+<header class="mx-auto">
+    <h1 class="text-4xl font-bold mt-3 mb-3">Job Application Tracker</h1>
+    <div class="grid grid-cols-3 gap-4 mb-16">
+        <div class="card p-5 align-middle justify-center border border-none rounded bg-[#e4ebf1] shadow">
+            <h3 class="text-[14px]">Total</h3>
+            <h2 class="text-2xl font-bold">8</h2>
+        </div>
+        <div class="card p-5 align-middle justify-center border rounded bg-[#e4ebf1]">
+            <h3 class="text-[14px]">Interview</h3>
+            <h2 class="text-2xl font-bold">8</h2>
+        </div>
+        <div class="card p-5 align-middle justify-center border rounded bg-[#e4ebf1]">
+            <h3 class="text-[14px]">Rejected</h3>
+            <h2 class="text-2xl font-bold">8</h2>
+        </div>
+    </div>
+</header>
+<section>
+    <div class=" mb-16 jobs flex items-center justify-between">
+       <h1 class="text-[20px] font-semibold">Available Jobs</h1>
+    <h2><span>8</span> Jobs</h2>     
+    </div>
+
+    <div class="flex gap-6 mb-8">
+<button class="btn btn-primary w-20 text-[16px] pt-2 pb-2">All</button>
+<button class="btn btn-info w-20 text-[16px] pt-2 pb-2">Interview</button>
+<button class="btn btn-error w-20 text-[16px] pt-2 pb-2">Rejected</button>
+    </div>
+</section>
+
+<section>
+    <div>
+        <h1 class="company">Mobile First Corp</h1>
+        <h2 class="position">React Native Developer</h2>
+        <h3 class="job-type">Remote . Full-ttime . $130,000-175,000</h3>
+        <div class="action-btn">
+            <button class="btn btn-info w-20 text-[16px] pt-2 pb-2">Interview</button>
+            <button class="btn btn-error w-20 text-[16px] pt-2 pb-2">Rejected</button>
+        </div>
+
+    </div>
+</section>
+</body>
+</html>
