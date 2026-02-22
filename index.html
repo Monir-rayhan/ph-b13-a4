@@ -15,6 +15,8 @@
 
 <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <style>
         *{
@@ -27,15 +29,15 @@
 <header class="mx-auto">
     <h1 class="text-4xl font-bold mt-3 mb-3">Job Application Tracker</h1>
     <div class="grid grid-cols-3 gap-4 mb-16">
-        <div class="card p-5 align-middle justify-center border border-none rounded bg-[#e4ebf1] shadow">
+        <div class="card p-5 align-middle justify-center border-none rounded-2xl bg-[#fcfcfc] shadow">
             <h3 class="text-[14px]">Total</h3>
             <h2 class="text-2xl font-bold">8</h2>
         </div>
-        <div class="card p-5 align-middle justify-center border rounded bg-[#e4ebf1]">
+        <div class="card p-5 align-middle justify-center border-none rounded-2xl bg-[#fcfcfc] shadow">
             <h3 class="text-[14px]">Interview</h3>
             <h2 class="text-2xl font-bold">8</h2>
         </div>
-        <div class="card p-5 align-middle justify-center border rounded bg-[#e4ebf1]">
+        <div class="card p-5 align-middle justify-center border-none rounded-2xl bg-[#fcfcfc] shadow">
             <h3 class="text-[14px]">Rejected</h3>
             <h2 class="text-2xl font-bold">8</h2>
         </div>
@@ -54,16 +56,21 @@
     </div>
 </section>
 
-<section>
-    <div>
-        <h1 class="company">Mobile First Corp</h1>
+<section class="flex justify-between mx-auto border-none rounded-2xl bg-[#fcfcfc] shadow">
+    <div class="px-6 pt-6 pb-6">
+        <h1 class="company text-[18px] font-semibold">Mobile First Corp</h1>
         <h2 class="position">React Native Developer</h2>
-        <h3 class="job-type">Remote . Full-ttime . $130,000-175,000</h3>
-        <div class="action-btn">
+        <h3 class="job-type mb-5 mt-5">Remote . Full-ttime . $130,000-$175,000</h3>
+        <h4 class="job-desc">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</h4>
+        <div class="action-btn flex gap-6">
             <button class="btn btn-info w-20 text-[16px] pt-2 pb-2">Interview</button>
             <button class="btn btn-error w-20 text-[16px] pt-2 pb-2">Rejected</button>
         </div>
 
+    </div>
+    <div>
+        <button class="pt-6"><i class="fa-solid fa-trash-can"></i></button>
+        
     </div>
 </section>
 </body>
