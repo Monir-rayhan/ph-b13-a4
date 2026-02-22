@@ -16,6 +16,8 @@
 <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+    <!-- DaisyUI + Tailwind -->
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <style>
@@ -25,53 +27,211 @@
     </style>
 
 </head>
-<body class="max-w-[1140px] mx-auto">
-<header class="mx-auto">
+<body class="bg-gray-100">
+    <div class="max-w-[1140px] mx-auto px-4 sm:px-6 py-6">
+<header>
     <h1 class="text-4xl font-bold mt-3 mb-3">Job Application Tracker</h1>
-    <div class="grid grid-cols-3 gap-4 mb-16">
-        <div class="card p-5 align-middle justify-center border-none rounded-2xl bg-[#fcfcfc] shadow">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+        <div class="card p-5 bg-white shadow rounded-2xl">
             <h3 class="text-[14px]">Total</h3>
-            <h2 class="text-2xl font-bold">8</h2>
+            <h2 id="totalCount" class="text-2xl font-bold">0</h2>
         </div>
-        <div class="card p-5 align-middle justify-center border-none rounded-2xl bg-[#fcfcfc] shadow">
+
+        <div class="card p-5 bg-white shadow rounded-2xl">
             <h3 class="text-[14px]">Interview</h3>
-            <h2 class="text-2xl font-bold">8</h2>
+            <h2 id="interviewCount" class="text-2xl font-bold">0</h2>
         </div>
-        <div class="card p-5 align-middle justify-center border-none rounded-2xl bg-[#fcfcfc] shadow">
+
+        <div class="card p-5 bg-white shadow rounded-2xl">
             <h3 class="text-[14px]">Rejected</h3>
-            <h2 class="text-2xl font-bold">8</h2>
+            <h2 id="rejectedCount" class="text-2xl font-bold">0</h2>
         </div>
     </div>
 </header>
-<section>
-    <div class=" mb-16 jobs flex items-center justify-between">
-       <h1 class="text-[20px] font-semibold">Available Jobs</h1>
-    <h2><span>8</span> Jobs</h2>     
-    </div>
 
-    <div class="flex gap-6 mb-8">
-<button class="btn btn-primary w-20 text-[16px] pt-2 pb-2">All</button>
-<button class="btn btn-info w-20 text-[16px] pt-2 pb-2">Interview</button>
-<button class="btn btn-error w-20 text-[16px] pt-2 pb-2">Rejected</button>
+
+<section class="mb-6">
+    <div class="flex  justify-between mb-5">
+       <h2 class="text-[20px] font-semibold">Available Jobs</h2>
+    <h2><span id="tabCount">0</span> Jobs</h2>     
+    </div>
+    
+    <div class="flex gap-5">
+        <button class="btn btn-primary filterBtn" data-filter="all">All</button>
+        <button class="btn btn-info filterBtn" data-filter="interview">Interview</button>
+        <button class="btn btn-error filterBtn" data-filter="rejected">Rejected</button>
     </div>
 </section>
 
-<section class="flex justify-between mx-auto border-none rounded-2xl bg-[#fcfcfc] shadow">
-    <div class="px-6 pt-6 pb-6">
-        <h1 class="company text-[18px] font-semibold">Mobile First Corp</h1>
-        <h2 class="position">React Native Developer</h2>
-        <h3 class="job-type mb-5 mt-5">Remote . Full-ttime . $130,000-$175,000</h3>
-        <h4 class="job-desc">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</h4>
-        <div class="action-btn flex gap-6">
-            <button class="btn btn-info w-20 text-[16px] pt-2 pb-2">Interview</button>
-            <button class="btn btn-error w-20 text-[16px] pt-2 pb-2">Rejected</button>
+
+<!-- JOB CONTAINER -->
+
+<section id="jobContainer" class="space-y-6">
+
+
+    <div class="jobCard flex justify-between bg-white shadow rounded-2xl p-6">
+        <div>
+            <h2 class="font-semibold text-lg">Mobile First Corp</h2>
+            <p>React Native Developer</p>
+            <p class="my-3">Remote · Full-time · $130k-$175k</p>
+            <p class="mb-4">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+            <div class="flex gap-4">
+                <button class="btn btn-info interviewBtn">Interview</button>
+                <button class="btn btn-error rejectedBtn">Rejected</button>
+            </div>
         </div>
+        <button class="btn btn-ghost deleteBtn">
+    <i class="fa-solid fa-trash-can"></i></button>
+</div>
 
+
+    <div class="jobCard flex justify-between bg-white shadow rounded-2xl p-6">
+        <div>
+            <h2 class="font-semibold text-lg">TechNova Ltd</h2>
+            <p>Frontend Developer</p>
+            <p class="my-3">Onsite · Full-time · $90k-$110k</p>
+            <p class="mb-4">Develop responsive UI with React & Tailwind.</p>
+            <div class="flex gap-4">
+                <button class="btn btn-info interviewBtn">Interview</button>
+                <button class="btn btn-error rejectedBtn">Rejected</button>
+            </div>
+        </div>
+        <button class="btn btn-ghost deleteBtn">
+            <i class="fa-solid fa-trash-can"></i></button>
     </div>
-    <div>
-        <button class="pt-6"><i class="fa-solid fa-trash-can"></i></button>
-        
+
+
+    <div class="jobCard flex justify-between bg-white shadow rounded-2xl p-6">
+        <div>
+            <h2 class="font-semibold text-lg">CloudCore</h2>
+            <p>Backend Engineer</p>
+            <p class="my-3">Remote · Contract · $120k</p>
+            <p class="mb-4">Work with Node.js & microservices.</p>
+            <div class="flex gap-4">
+                <button class="btn btn-info interviewBtn">Interview</button>
+                <button class="btn btn-error rejectedBtn">Rejected</button>
+            </div>
+        </div>
+        <button class="btn btn-ghost deleteBtn">
+            <i class="fa-solid fa-trash-can"></i></button>
     </div>
+
+
+    <div class="jobCard flex justify-between bg-white shadow rounded-2xl p-6">
+        <div>
+            <h2 class="font-semibold text-lg">Designify</h2>
+            <p>UI/UX Designer</p>
+            <p class="my-3">Hybrid · $80k-$100k</p>
+            <p class="mb-4">Create modern and user-focused designs.</p>
+            <div class="flex gap-4">
+                <button class="btn btn-info interviewBtn">Interview</button>
+                <button class="btn btn-error rejectedBtn">Rejected</button>
+            </div>
+        </div>
+        <button class="btn btn-ghost deleteBtn">
+            <i class="fa-solid fa-trash-can"></i></button>
+    </div>
+
+
+    <div class="jobCard flex justify-between bg-white shadow rounded-2xl p-6">
+        <div>
+            <h2 class="font-semibold text-lg">FinEdge</h2>
+            <p>Data Analyst</p>
+            <p class="my-3">Remote · $95k</p>
+            <p class="mb-4">Analyze financial datasets & dashboards.</p>
+            <div class="flex gap-4">
+                <button class="btn btn-info interviewBtn">Interview</button>
+                <button class="btn btn-error rejectedBtn">Rejected</button>
+            </div>
+        </div>
+        <button class="btn btn-ghost deleteBtn">
+            <i class="fa-solid fa-trash-can"></i></button>
+    </div>
+
+ 
+    <div class="jobCard flex justify-between bg-white shadow rounded-2xl p-6">
+        <div>
+            <h2 class="font-semibold text-lg">CyberSafe</h2>
+            <p>Security Engineer</p>
+            <p class="my-3">Onsite · $110k</p>
+            <p class="mb-4">Protect cloud infrastructure systems.</p>
+            <div class="flex gap-4">
+                <button class="btn btn-info interviewBtn">Interview</button>
+                <button class="btn btn-error rejectedBtn">Rejected</button>
+            </div>
+        </div>
+        <button class="btn btn-ghost deleteBtn">
+            <i class="fa-solid fa-trash-can"></i></button>
+    </div>
+
+
+    <div class="jobCard flex justify-between bg-white shadow rounded-2xl p-6">
+        <div>
+            <h2 class="font-semibold text-lg">AI Labs</h2>
+            <p>Machine Learning Engineer</p>
+            <p class="my-3">Remote · $140k</p>
+            <p class="mb-4">Build AI-driven intelligent systems.</p>
+            <div class="flex gap-4">
+                <button class="btn btn-info interviewBtn">Interview</button>
+                <button class="btn btn-error rejectedBtn">Rejected</button>
+            </div>
+        </div>
+        <button class="btn btn-ghost deleteBtn">
+            <i class="fa-solid fa-trash-can"></i></button>
+    </div>
+
+
+    <div class="jobCard flex justify-between bg-white shadow rounded-2xl p-6">
+        <div>
+            <h2 class="font-semibold text-lg">DevSolutions</h2>
+            <p>Full Stack Developer</p>
+            <p class="my-3">Hybrid · $115k</p>
+            <p class="mb-4">Develop scalable web applications.</p>
+            <div class="flex gap-4">
+                <button class="btn btn-info interviewBtn">Interview</button>
+                <button class="btn btn-error rejectedBtn">Rejected</button>
+            </div>
+        </div>
+        <button class="btn btn-ghost deleteBtn">
+            <i class="fa-solid fa-trash-can"></i></button>
+    </div>
+
+
+    <div class="jobCard flex justify-between bg-white shadow rounded-2xl p-6">
+        <div>
+            <h2 class="font-semibold text-lg">GreenTech</h2>
+            <p>DevOps Engineer</p>
+            <p class="my-3">Remote · $125k</p>
+            <p class="mb-4">Automate CI/CD pipelines and deployments.</p>
+            <div class="flex gap-4">
+                <button class="btn btn-info interviewBtn">Interview</button>
+                <button class="btn btn-error rejectedBtn">Rejected</button>
+            </div>
+        </div>
+        <button class="btn btn-ghost deleteBtn">
+            <i class="fa-solid fa-trash-can"></i></button>
+    </div>
+
+
+    <div class="jobCard flex justify-between bg-white shadow rounded-2xl p-6">
+        <div>
+            <h2 class="font-semibold text-lg">StartupX</h2>
+            <p>Product Manager</p>
+            <p class="my-3">Onsite · $105k</p>
+            <p class="mb-4">Lead product strategy and roadmap planning.</p>
+            <div class="flex gap-4">
+                <button class="btn btn-info interviewBtn">Interview</button>
+                <button class="btn btn-error rejectedBtn">Rejected</button>
+            </div>
+        </div>
+        <button class="btn btn-ghost deleteBtn">
+            <i class="fa-solid fa-trash-can"></i></button>
+    </div>
+
+  
 </section>
+    </div>
+
+<script src="script.js"></script>
 </body>
 </html>
