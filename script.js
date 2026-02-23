@@ -3,8 +3,10 @@ const totalCount = document.getElementById("totalCount");
 const interviewCount = document.getElementById("interviewCount");
 const rejectedCount = document.getElementById("rejectedCount");
 const tabCount = document.getElementById("tabCount");
+const totalTabCount = document.getElementById("totalTabCount");
 const filterBtns = document.querySelectorAll(".filterBtn");
 const emptyState = document.getElementById("emptyState");
+
 
 let currentFilter = "all";
 
@@ -38,6 +40,8 @@ function updateTabView() {
     const cards = document.querySelectorAll(".jobCard");
     let visibleCount = 0;
 
+    const totalJobs = cards.length; // total remaining jobs
+
     cards.forEach(card => {
         if (currentFilter === "all") {
             card.style.display = "flex";
@@ -53,6 +57,7 @@ function updateTabView() {
     });
 
     tabCount.textContent = visibleCount;
+    totalTabCount.textContent = totalJobs;
 
     if (visibleCount === 0) {
         emptyState.classList.remove("hidden");
