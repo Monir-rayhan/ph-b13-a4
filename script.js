@@ -8,15 +8,12 @@ const emptyState = document.getElementById("emptyState");
 
 let currentFilter = "all";
 
-
-// Set default status
+// default status
 document.querySelectorAll(".jobCard").forEach(card => {
     card.dataset.status = "none";
 });
 
 updateCounts();
-
-// UPDATE COUNTS
 
 function updateCounts() {
     const cards = document.querySelectorAll(".jobCard");
@@ -36,8 +33,6 @@ function updateCounts() {
 
     updateTabView();
 }
-
-// UPDATE TAB VIEW
 
 function updateTabView() {
     const cards = document.querySelectorAll(".jobCard");
@@ -59,8 +54,6 @@ function updateTabView() {
 
     tabCount.textContent = visibleCount;
 
-    // Showing empty statement if no visible Job cards
-
     if (visibleCount === 0) {
         emptyState.classList.remove("hidden");
     } else {
@@ -68,8 +61,7 @@ function updateTabView() {
     }
 }
 
-// FILTER BUTTON
-
+// FILTER
 filterBtns.forEach(btn => {
     btn.addEventListener("click", () => {
         currentFilter = btn.dataset.filter;
@@ -77,26 +69,31 @@ filterBtns.forEach(btn => {
     });
 });
 
-// JOB ACTIONS
-
+// ACTIONS
 jobContainer.addEventListener("click", function (e) {
 
     const card = e.target.closest(".jobCard");
     if (!card) return;
 
-    // Interview
+    const badge = card.querySelector(".statusBadge");
+
+// Interview
     if (e.target.classList.contains("interviewBtn")) {
         card.dataset.status = "interview";
+        badge.textContent = "INTERVIEW";
+        badge.className = "statusBadge inline-block px-3 py-1 text-xs font-semibold rounded-md bg-green-100 text-green-700 mb-3";
         updateCounts();
     }
 
-    // Rejected
+// Rejected
     if (e.target.classList.contains("rejectedBtn")) {
         card.dataset.status = "rejected";
+        badge.textContent = "REJECTED";
+        badge.className = "statusBadge inline-block px-3 py-1 text-xs font-semibold rounded-md bg-red-100 text-red-700 mb-3";
         updateCounts();
     }
 
-    // Delete
+// Delete
     if (e.target.closest(".deleteBtn")) {
         card.remove();
         updateCounts();
